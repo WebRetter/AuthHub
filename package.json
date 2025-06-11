@@ -49,8 +49,9 @@
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
-			"esbuild",
-			"better-sqlite3"
+			"@tailwindcss/oxide",
+			"better-sqlite3",
+			"esbuild"
 		]
 	}
 }
