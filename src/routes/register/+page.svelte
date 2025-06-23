@@ -7,8 +7,8 @@
 
 <div class="bg-base-200 flex min-h-screen items-center justify-center px-4">
 	<div class="card bg-base-100 w-full max-w-sm shadow-2xl">
-		<form method="post" action="?/login" use:enhance class="card-body space-y-4">
-			<h2 class="text-center text-2xl font-bold">🔐 Login</h2>
+		<form method="post" action="?/register" use:enhance class="card-body space-y-4">
+			<h2 class="text-center text-2xl font-bold">🔐 Registrieren</h2>
 
 			<div>
 				<label class="label" for="username">
@@ -36,10 +36,10 @@
 				</div>
 			{/if}
 
-			<button type="submit" class="btn btn-primary w-full">Login</button>
+			<button type="submit" class="btn btn-primary w-full">Registrieren</button>
 
 			<div class="text-center text-sm opacity-70">
-				Noch kein Konto? <a href="/register" class="link link-primary">Registrieren</a>
+				Schon ein Konto? <a href="/login" class="link link-primary">Login</a>
 			</div>
 		</form>
 	</div>
