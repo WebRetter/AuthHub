@@ -1,3 +1,4 @@
+import { Role } from '$lib/server/roles';
 import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
 
 export const user = sqliteTable('user', {
@@ -5,7 +6,7 @@ export const user = sqliteTable('user', {
 	email: text('email').unique(),
 	username: text('username').notNull().unique(),
 	passwordHash: text('password_hash').notNull(),
-	isAdmin: integer('is_admin', { mode: 'boolean' }).default(false).notNull(),
+	role: integer('role').notNull().$type<Role>().default(Role.Readonly), // ← Hier kommt dein Rollensystem rein
 	createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
 	updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull(),
 	lastLogin: integer('last_login', { mode: 'timestamp' })
