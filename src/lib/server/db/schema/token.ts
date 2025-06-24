@@ -10,3 +10,5 @@ export const apiToken = sqliteTable('api_token', {
 	createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
 	expiresAt: integer('expires_at', { mode: 'timestamp' })
 });
+
+export type ApiToken = typeof apiToken.$inferSelect;
