@@ -21,6 +21,7 @@
 					class="input input-bordered"
 					minlength="3"
 					maxlength="31"
+					autocomplete="username"
 					required
 				/>
 			</div>
@@ -36,6 +37,7 @@
 					class="input input-bordered"
 					minlength="6"
 					maxlength="255"
+					autocomplete="current-password"
 					required
 				/>
 			</div>
