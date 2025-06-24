@@ -1,7 +1,7 @@
 import type { RequestEvent } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
 import { sha256 } from '@oslojs/crypto/sha2';
-import { encodeBase64url, encodeHexLowerCase } from '@oslojs/encoding';
+import { encodeBase64url, encodeHexLowerCase, encodeBase32LowerCase } from '@oslojs/encoding';
 import { db } from '$lib/server/db';
 import * as table from '$lib/server/db/schema';
 
@@ -78,4 +78,32 @@ export function deleteSessionTokenCookie(event: RequestEvent) {
 	event.cookies.delete(sessionCookieName, {
 		path: '/'
 	});
+}
+
+export function generateUserId() {
+	// ID with 120 bits of entropy, or about the same as UUID v4.
+	const bytes = crypto.getRandomValues(new Uint8Array(15));
+	const id = encodeBase32LowerCase(bytes);
+	return id;
+}
+
+/**
+ * Validates a username string.
+ * Allowed: A-Z, a-z, 0-9, underscore (_) and hyphen (-)
+ * Length: 3–31 characters
+ *
+ * @param username - The value to validate
+ * @returns True if valid, otherwise false
+ */
+export function validateUsername(username: unknown): username is string {
+	return (
+		typeof username === 'string' &&
+		username.length >= 3 &&
+		username.length <= 31 &&
+		/^[A-Za-z0-9_-]+$/.test(username)
+	);
+}
+
+export function validatePassword(password: unknown): password is string {
+	return typeof password === 'string' && password.length >= 6 && password.length <= 255;
 }
