@@ -15,6 +15,7 @@
 			</form>
 		{:else}
 			<a href="./login" class="btn btn-ghost" aria-label="Login">Login</a>
+			<a href="./register" class="btn btn-ghost" aria-label="Register">Register</a>
 		{/if}
 	</div>
 </nav>
