@@ -14,7 +14,15 @@
 				<label class="label" for="username">
 					<span class="label-text">Username</span>
 				</label>
-				<input name="username" id="username" type="text" class="input input-bordered" required />
+				<input
+					name="username"
+					id="username"
+					type="text"
+					class="input input-bordered"
+					minlength="3"
+					maxlength="31"
+					required
+				/>
 			</div>
 
 			<div>
@@ -26,6 +34,8 @@
 					id="password"
 					type="password"
 					class="input input-bordered"
+					minlength="6"
+					maxlength="255"
 					required
 				/>
 			</div>
