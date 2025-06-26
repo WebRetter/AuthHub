@@ -24,6 +24,7 @@ export async function createSession(token: string, userId: string) {
 		expiresAt: new Date(Date.now() + DAY_IN_MS * 30)
 	};
 	await db.insert(table.session).values(session);
+	await db.update(table.user).set({ lastLogin: new Date() }).where(eq(table.user.id, userId));
 	return session;
 }
 
