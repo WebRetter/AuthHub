@@ -115,6 +115,15 @@ export function validateUsername(username: unknown): username is string {
 	);
 }
 
+export function validateName(name: unknown): name is string {
+	return (
+		typeof name === 'string' &&
+		name.trim().length >= 2 && // Mindestens 2 Zeichen sinnvoll für echte Namen
+		name.trim().length <= 50 && // Maximal 50 Zeichen als Obergrenze
+		/^[a-zA-ZäöüÄÖÜß\s\-']+$/.test(name.trim()) // Erlaubt Buchstaben, Leerzeichen, Bindestriche, Apostrophe
+	);
+}
+
 export function validatePassword(password: unknown): password is string {
 	return typeof password === 'string' && password.length >= 6 && password.length <= 255;
 }
