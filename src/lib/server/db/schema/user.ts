@@ -1,4 +1,4 @@
-import { Role } from '$lib/server/roles';
+import { Role } from '$lib/roles';
 import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
 
 export const user = sqliteTable('user', {
