@@ -110,8 +110,8 @@ export function validatePassword(password: unknown): password is string {
 	return typeof password === 'string' && password.length >= 6 && password.length <= 255;
 }
 
-export function requireLogin() {
-	const { locals } = getRequestEvent();
+export function requireLogin(event?: RequestEvent) {
+	const { locals } = event ?? getRequestEvent();
 
 	if (!locals.user) {
 		return redirect(302, '/login');
