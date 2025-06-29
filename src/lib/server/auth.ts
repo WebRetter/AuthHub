@@ -39,6 +39,7 @@ export async function validateSessionToken(token: string) {
 				username: table.user.username,
 				name: table.user.name,
 				role: table.user.role,
+				verified: table.user.verified,
 				createdAt: table.user.createdAt,
 				updatedAt: table.user.updatedAt,
 				lastLogin: table.user.lastLogin

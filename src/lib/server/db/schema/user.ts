@@ -7,6 +7,7 @@ export const user = sqliteTable('user', {
 	username: text('username').notNull().unique(),
 	name: text('name'),
 	passwordHash: text('password_hash').notNull(),
+	verified: integer('verified', { mode: 'boolean' }).notNull().default(false),
 	role: integer('role').notNull().$type<Role>().default(Role.Readonly), // ← Hier kommt dein Rollensystem rein
 	createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
 	updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull(),
